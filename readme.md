@@ -17,4 +17,4 @@ go get -u github.com/abcdsxg/wsmanager
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2020-present, Shingl
+Copyright (c) 2020-present, Shingle
