@@ -46,11 +46,18 @@ func main() {
 		})
 
 		go func() {
-			//do something
+			//send to all sessions
 			time.Sleep(5 * time.Second)
 			sessionManager.Broadcast(websocket.TextMessage, []byte("broadcast test"))
+
+			//send to a session
+			specialSession, ok := sessionManager.GetSession(userID)
+			if ok {
+				specialSession.WriteMessage(websocket.TextMessage, []byte("send to special session"))
+			}
 			return
 		}()
+
 	})
 
 	err := http.ListenAndServe(":8080", nil)
